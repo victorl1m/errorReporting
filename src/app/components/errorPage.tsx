@@ -1,10 +1,14 @@
 import { initFirebase } from "@/app/funcs/firebase/firebaseApp";
 import { getAuth } from "@firebase/auth";
+import { useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function ErrorPage({ message }: any) {
   const auth = getAuth();
   const [error] = useAuthState(auth);
+
+  const router = useRouter();
+
   initFirebase();
 
   return (
@@ -18,12 +22,12 @@ export default function ErrorPage({ message }: any) {
           Desculpe, mas não conseguimos processar a sua requisição
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <a
-            href="/home"
+          <button
+            onClick={() => router.push("/")}
             className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Voltar para tela inicial
-          </a>
+          </button>
           <a
             href="mailto:victorhugo@deroyque.com"
             className="text-sm font-semibold text-gray-900"
