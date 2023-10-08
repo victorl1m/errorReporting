@@ -1,11 +1,9 @@
 import { initFirebase } from "@/app/funcs/firebase/firebaseApp";
 import { getAuth } from "@firebase/auth";
 import { useRouter } from "next/navigation";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function ErrorPage({ message }: any) {
   const auth = getAuth();
-  const [error] = useAuthState(auth);
 
   const router = useRouter();
 

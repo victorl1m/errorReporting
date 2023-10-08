@@ -21,7 +21,6 @@ export default function Index() {
 
   const signIn = async () => {
     const result = await signInWithPopup(auth, provider);
-    console.log(result.user);
   };
 
   useEffect(() => {
