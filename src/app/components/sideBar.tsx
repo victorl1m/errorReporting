@@ -13,7 +13,7 @@ type SidebarProps = {
 export default function Sidebar({
   reqCounter,
   inboxNotifications,
-}: SidebarProps) {
+}: SidebarProps): any {
   initFirebase();
   const auth = getAuth();
   const router = useRouter();
